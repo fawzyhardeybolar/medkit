@@ -21,12 +21,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use(userRouter);
-app.get("/test", auth, (req, res) => {
-  console.log(req.user);
-  // req.body.createdBy = req.user.userId
-
-  res.send("auth worked");
-});
 app.use("/appointments", aptRouter);
 app.use("/messages", messageRouter);
 app.use(subRouter);
@@ -38,7 +32,7 @@ const { MONGO_URI } = process.env;
 connectDB(MONGO_URI)
   .then(() => {
     app.listen(PORT, () => {
-      console.log("Server Connected");
+      console.log("Server Connected....");
     });
   })
   .catch((err) => console.log(err));
