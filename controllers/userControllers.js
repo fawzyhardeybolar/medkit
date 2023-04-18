@@ -60,10 +60,9 @@ const login = async (req, res) => {
   }
 };
 
-// logout
-const logout = (req, res) => {
-  res.cookie("jwt", "", { maxAge: 1000 });
-  res.redirect("/login");
-};
+// // logout
+// const logout = (req, res) => {
+//   res.cookie("jwt", "", { maxAge: 1000 });
+// };
 
-module.exports = { signUp, allUsers, login, logout };
+module.exports = { signUp, allUsers, login,};
