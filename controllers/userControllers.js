@@ -18,7 +18,7 @@ const signUp = async (req, res) => {
     res.status(201).json({ success: true, data: user });
   } catch (error) {
     const errors = handleErrors(error);
-    res.status(400).json(errors);
+    res.status(404).json({errors});
   }
 };
 
@@ -65,4 +65,4 @@ const login = async (req, res) => {
 //   res.cookie("jwt", "", { maxAge: 1000 });
 // };
 
-module.exports = { signUp, allUsers, login,};
+module.exports = { signUp, allUsers, login };
