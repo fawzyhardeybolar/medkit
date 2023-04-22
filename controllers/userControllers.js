@@ -12,7 +12,12 @@ const generateToken = (id) => {
 // signup
 const signUp = async (req, res) => {
   try {
-    const { fullname, email, password } = req.body;
+    const { fullname, email, password } = req.body
+
+    const userExist = await Users.findOne({email})
+    if (userExist) {
+      return res.status(400).json({msg: "Email already exist pls login"})
+    }
 
     const user = await Users.create({ fullname, email, password });
     res.status(201).json({ success: true, data: user });
