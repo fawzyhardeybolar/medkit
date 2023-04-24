@@ -5,6 +5,6 @@ const {
   getAppointments,
 } = require("../controllers/aptControllers");
 
-router.route("/").post(auth, createAppointment).get(getAppointments);
+router.route("/").post(createAppointment).get(getAppointments);
 
 module.exports = router;
