@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { auth } = require("../middleware/auth");
-const { createAppointment } = require("../controllers/aptControllers");
+const { createAppointment, getAppointments } = require("../controllers/aptControllers");
 
-router.route("/").post(auth, createAppointment);
+router.route("/").post(auth, createAppointment).get(getAppointments);
 
 module.exports = router;

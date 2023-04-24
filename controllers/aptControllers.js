@@ -16,20 +16,20 @@ const createAppointment = async (req, res) => {
   }
 };
 
-// const getAppointments = async (req, res) => {
-//   try {
-//     const appointments = await Appointment.find();
-//     res
-//       .status(200)
-//       .json({
-//         success: true,
-//         noOfApt: appointments.length,
-//         data: appointments,
-//       });
-//   } catch (error) {
-//     res.status(400).json({ error });
-//   }
-// };
+const getAppointments = async (req, res) => {
+  try {
+    const appointments = await Appointment.find();
+    res
+      .status(200)
+      .json({
+        success: true,
+        noOfApt: appointments.length,
+        data: appointments,
+      });
+  } catch (error) {
+    res.status(400).json({ error });
+  }
+};
 
 // const getAppointment = async (req, res) => {
 //   try {
@@ -69,4 +69,5 @@ const createAppointment = async (req, res) => {
 
 module.exports = {
   createAppointment,
+  getAppointments
 };
