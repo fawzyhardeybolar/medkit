@@ -15,7 +15,9 @@ const signUp = async (req, res) => {
     const { fullname, email, password } = req.body;
 
     const user = await Users.create({ fullname, email, password });
-    res.status(201).json({ success: true, data: user });
+
+    const token = generateToken(user._id)
+    res.status(201).json({ success: true, data: user, token });
   } catch (error) {
     const errors = handleErrors(error);
     res.status(404).json({ errors });
