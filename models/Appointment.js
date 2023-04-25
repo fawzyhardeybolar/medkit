@@ -28,11 +28,6 @@ const appointmentSchema = new Schema(
       trim: true,
       validate: [isDate, "This date is invalid"],
     },
-    createdBy: {
-      type: mongoose.Types.ObjectId,
-      ref: "User",
-      required: true,
-    },
   },
   { timestamps: true }
 );
